@@ -1,0 +1,16 @@
+{
+  "page": {
+    "name": "hd",
+    "dimensions": {
+      "width": 6.4,
+      "height": 4.266667,
+      "units": "in"
+    },
+    "dpi": [300, 300],
+    "bg": "lightblue",
+    "border": {
+      "width": 8,
+      "color": "yellow"
+    }
+  }
+}

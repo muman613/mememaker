@@ -1,0 +1,18 @@
+{
+  "template": {
+    "name": "meme1",
+    "page": "letter",
+    "areas": [
+      {
+        "name": "image",
+        "type": "image",
+        "dimensions": {
+          "top": 20,
+          "left": 10,
+          "bottom": 80,
+          "right": 90
+        }
+      }
+    ]
+  }
+}
