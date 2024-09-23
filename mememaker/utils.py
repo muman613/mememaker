@@ -1,6 +1,7 @@
 import os
 import glob
 import json
+from typing import List
 
 PAGES_PATH = 'resources/pages'
 TEMPLATES_PATH = 'resources/templates'
@@ -48,4 +49,27 @@ def load_template(template_name: str) -> dict:
 
     # If no matching template is found, raise an exception
     raise FileNotFoundError(f"No template found with the name '{template_name}' in {TEMPLATES_PATH}")
+
+
+def get_template_names() -> List[str]:
+    template_names = []
+    template_list = scan_directory_for_json(TEMPLATES_PATH)
+    for template in template_list:
+        template_json = load_json_file(template)
+        if 'template' in template_json and 'name' in template_json['template']:
+            template_names.append(template_json['template']['name'])
+
+    return template_names
+
+
+def get_page_names() -> List[str]:
+    page_names = []
+    page_list = scan_directory_for_json(PAGES_PATH)
+    for page in page_list:
+        page_json = load_json_file(page)
+        if 'page' in page_json and 'name' in page_json['page']:
+            page_names.append(page_json['page']['name'])
+
+    return page_names
+
 
