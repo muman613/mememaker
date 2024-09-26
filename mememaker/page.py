@@ -4,7 +4,8 @@ from .utils import load_page
 
 
 class GraphicalPage:
-    def __init__(self, width_in, height_in, dpi, bg_color, border_width, border_color):
+    def __init__(self, name, width_in, height_in, dpi, bg_color, border_width, border_color):
+        self.name = name
         # Convert dimensions from inches to pixels using DPI
         self.width_px = int(width_in * dpi[0])
         self.height_px = int(height_in * dpi[1])
@@ -14,9 +15,10 @@ class GraphicalPage:
         self.border_color = border_color
 
     @classmethod
-    def from_json(cls, json_data):
+    def load_from_json(cls, json_data):
         # Parse the JSON data
         page_data = json_data['page']
+        name = page_data['name']
         dimensions = page_data['dimensions']
         dpi = page_data['dpi']
         bg_color = page_data['bg']
@@ -25,6 +27,7 @@ class GraphicalPage:
         border_color = border_data['color']
 
         return cls(
+            name=name,
             width_in=dimensions['width'],
             height_in=dimensions['height'],
             dpi=dpi,
@@ -38,7 +41,7 @@ class GraphicalPage:
         # Load the JSON from a file
         json_data = load_page(page_name)
         # Create a GraphicalPage object from the loaded JSON data
-        return cls.from_json(json_data)
+        return cls.load_from_json(json_data)
 
     @classmethod
     def load_from_filename(cls, file_path):
@@ -46,7 +49,7 @@ class GraphicalPage:
         with open(file_path, 'r') as f:
             json_data = json.load(f)
         # Create a GraphicalPage object from the loaded JSON data
-        return cls.from_json(json_data)
+        return cls.load_from_json(json_data)
 
     def create_image(self):
         # Create a blank image with the background color

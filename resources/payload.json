@@ -1,0 +1,20 @@
+{
+  "payload": {
+    "image": {
+      "source": "aurora.jpg",
+      "align": "center"
+    },
+    "text1": {
+      "text": "Hello World",
+      "color": "black",
+      "align": "center",
+      "size": 32
+    },
+    "text2": {
+      "text": "Goodbye World",
+      "color": "red",
+      "align": "center",
+      "size": 32
+    }
+  }
+}

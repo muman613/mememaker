@@ -12,6 +12,26 @@
           "bottom": 80,
           "right": 90
         }
+      },
+      {
+        "name": "text1",
+        "type": "text",
+        "dimensions": {
+          "top": 0,
+          "left": 0,
+          "bottom": 20,
+          "right": 100
+        }
+      },
+      {
+        "name": "text2",
+        "type": "text",
+        "dimensions": {
+          "top": 80,
+          "left": 0,
+          "bottom": 100,
+          "right": 100
+        }
       }
     ]
   }
